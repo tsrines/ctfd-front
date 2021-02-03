@@ -41,11 +41,11 @@ function App() {
             <Switch>
               <Redirect from='/:url*(/+)' to={pathname.slice(0, -1)} />
               <Route exact path='/' component={PostIndex} />
-              <PrivateRoute path='/posts/:id/edit' component={NewPost} />
-              <Route path='/posts/:id' component={PostShowPage} />
               <Route path='/login' component={Login} />
+              <PrivateRoute path='/posts/:id/edit' component={NewPost} />
+              <Route exact path='/posts/:id' component={PostShowPage} />
+              <Route exact path='/tos' component={TermsOfService} />
               <Route path='/privacy' component={Privacy} />
-              <Route path='/tos' component={TermsOfService} />
 
               <Redirect from='*' to='/' />
             </Switch>
