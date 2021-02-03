@@ -42,6 +42,9 @@ function App() {
               <PrivateRoute path='/posts/:id/edit' component={NewPost} />
               <Route path='/posts/:id' component={PostShowPage} />
               <Route path='/login' component={Login} />
+              <Route path='/privacy' component={Privacy} />
+              <Route path='/tos' component={TermsOfService} />
+
               <Redirect from='*' to='/' />
             </Switch>
           </div>
