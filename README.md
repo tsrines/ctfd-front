@@ -4,6 +4,5 @@ To get started with this repo, you first need the backend up and running. Visit 
 
 ## Guest User Information
 
-Name: Test User \
 email: test_ktfllns_user@tfbnw.net \
 password: abcd1234\$
