@@ -8,6 +8,8 @@ import PostIndex from 'posts/PostIndex';
 
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
+import Privacy from 'faceBookRequirements/Privacy';
+import TermsOfService from 'faceBookRequirements/TermsOfService';
 
 const lightTheme = createMuiTheme({
   palette: {
