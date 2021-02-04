@@ -9,9 +9,10 @@ import { App } from './App';
 errorInterceptor();
 
 // wait for facebook sdk before startup
-initFacebookSdk().then(startApp);
+initFacebookSdk().then((acct) => startApp(acct));
 
-function startApp() {
+function startApp(user) {
+  console.log(user);
   render(
     <Router history={history}>
       <App />

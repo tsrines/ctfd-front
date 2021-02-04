@@ -10,6 +10,9 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
 import Privacy from 'faceBookRequirements/Privacy';
 import TermsOfService from 'faceBookRequirements/TermsOfService';
+import // LoggedInUserContextProvider,
+// useUserContextHooks,
+'context/LoggedInUserContext';
 
 const lightTheme = createMuiTheme({
   palette: {
@@ -23,8 +26,9 @@ const darkTheme = createMuiTheme({
   },
 });
 
-function App() {
+function App(props) {
   const pathname = useLocation().pathname || '';
+  // const [userState, userDispatch] = useUserContextHooks();
 
   const [isDark, toggleDark] = useState(false);
 
@@ -34,6 +38,7 @@ function App() {
 
   return (
     <div>
+      {/* <LoggedInUserContextProvider value={user}> */}
       <Nav isDark={isDark} changeTheme={changeTheme} />
       <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
         <CssBaseline>
@@ -52,6 +57,7 @@ function App() {
           </div>
         </CssBaseline>
       </ThemeProvider>
+      {/* </LoggedInUserContextProvider> */}
     </div>
   );
 }
