@@ -40,9 +40,11 @@ const NewPost = ({ history, match }) => {
   };
 
   const renderers = {
-    code: ({ language, value }) => {
+    code: ({ language, children }) => {
       return (
-        <SyntaxHighlighter style={dark} language={language} children={value} />
+        <SyntaxHighlighter style={dark} language={language}>
+          {children}
+        </SyntaxHighlighter>
       );
     },
   };
@@ -56,13 +58,7 @@ const NewPost = ({ history, match }) => {
         selectedTab={selectedTab}
         onTabChange={setSelectedTab}
         generateMarkdownPreview={(markdown) =>
-          Promise.resolve(
-            <ReactMarkdown
-              plugins={[gfm]}
-              renderers={renderers}
-              source={markdown}
-            />
-          )
+          Promise.resolve(<ReactMarkdown plugins={[gfm]} renderers={renderers} source={markdown} />)
         }
         childProps={{
           writeButton: {

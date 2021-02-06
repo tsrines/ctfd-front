@@ -4,9 +4,8 @@
   "browser": true, // for react web
   "es6": true // enables es6 features
   },
-  "parser": "babel-eslint", // needed to make babel stuff work properly
   "root": true,
-  "extends": ["airbnb", "universe/native", "plugin:prettier/recommended"],
+  "extends": ["airbnb", "plugin:prettier/recommended"],
   "rules": {
     "react/jsx-filename-extension": [ 1, { "extensions": [ ".js", ".jsx" ] } ],
     "react/prop-types": "off",
