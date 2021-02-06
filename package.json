@@ -55,12 +55,10 @@
   "lint-staged": {
     "*.+(js|jsx)": [
       "pretty-quick --staged",
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ],
     "*.+(json|css|md)": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   },
   "eslintConfig": {
