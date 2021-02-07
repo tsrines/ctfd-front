@@ -49,7 +49,8 @@
   },
   "lint-staged": {
     "*.+(js|jsx)": [
-      "pretty-quick --staged"
+      "pretty-quick --staged",
+      "eslint"
     ],
     "*.+(json|css|md)": [
       "prettier --write"
