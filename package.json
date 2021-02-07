@@ -50,7 +50,7 @@
   "lint-staged": {
     "*.+(js|jsx)": [
       "pretty-quick --staged",
-      "eslint"
+      "eslint --fix"
     ],
     "*.+(json|css|md)": [
       "prettier --write"
