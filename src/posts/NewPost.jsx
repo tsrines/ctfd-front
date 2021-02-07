@@ -16,10 +16,11 @@ const NewPost = ({ history, match }) => {
   const [selectedTab, setSelectedTab] = useState('write');
 
   const account = accountService.accountValue;
-  const save = async function* (data) {
-    var fileInput = document.getElementsByClassName('image-input')[0];
+  // eslint-disable-next-line func-names
+  const save = async function* () {
+    const fileInput = document.getElementsByClassName('image-input')[0];
     const file = fileInput.files[0];
-    var filename = file.name;
+    const filename = file.name;
     const formData = new FormData();
     formData.append('images', file, filename);
     const url = await updatePost(formData, account.token, file);
@@ -50,7 +51,7 @@ const NewPost = ({ history, match }) => {
   };
 
   return (
-    <div className='container'>
+    <div className="container">
       <ReactMde
         minEditorHeight={350}
         value={value}

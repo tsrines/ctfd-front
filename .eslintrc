@@ -5,14 +5,13 @@
   "es6": true // enables es6 features
   },
   "root": true,
-  
-
-  "extends": ["airbnb", "plugin:prettier/recommended"],
+  "extends": ["airbnb", "plugin:prettier/recommended",  "prettier/react"],
   "rules": {
     "react/jsx-filename-extension": [ 1, { "extensions": [ ".js", ".jsx" ] } ],
     "react/prop-types": "off",
     "no-use-before-define": "off",
-    "global-require": "off"
-    // "import/no-unresolved": [2, { "commonjs": true, "amd": true } ]
+    "global-require": "off",
+    "import/no-unresolved": "off",
+    "no-console":"error"
   }
 }
