@@ -13,7 +13,6 @@
     "react/prop-types": "off",
     "no-use-before-define": "off",
     "global-require": "off",
-    "import/no-unresolved": [2, {"commonjs": true, "amd": true}]
-
+    "import/no-unresolved": [2, { "commonjs": true, "amd": true } ]
   }
 }
