@@ -9,7 +9,7 @@ import { App } from './App';
 errorInterceptor();
 
 // wait for facebook sdk before startup
-initFacebookSdk().then((acct) => startApp(acct));
+initFacebookSdk().then(startApp);
 
 function startApp() {
   render(
