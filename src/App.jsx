@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { createContext, useState } from 'react';
 import { Route, Switch, Redirect, useLocation } from 'react-router-dom';
 import { Nav, PrivateRoute } from '_components';
 import { Login } from 'login/Login';
@@ -10,9 +10,8 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
 import Privacy from 'faceBookRequirements/Privacy';
 import TermsOfService from 'faceBookRequirements/TermsOfService';
-import // LoggedInUserContextProvider,
-// useUserContextHooks,
-'context/LoggedInUserContext';
+
+import { accountService } from '_services';
 
 const lightTheme = createMuiTheme({
   palette: {
@@ -25,10 +24,10 @@ const darkTheme = createMuiTheme({
     type: 'dark',
   },
 });
+export const UserContext = createContext();
 
-function App(props) {
+function App() {
   const pathname = useLocation().pathname || '';
-  // const [userState, userDispatch] = useUserContextHooks();
 
   const [isDark, toggleDark] = useState(false);
 
@@ -38,26 +37,28 @@ function App(props) {
 
   return (
     <div>
-      {/* <LoggedInUserContextProvider value={user}> */}
-      <Nav isDark={isDark} changeTheme={changeTheme} />
-      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
-        <CssBaseline>
-          <div className='container pt-4'>
-            <Switch>
-              <Redirect from='/:url*(/+)' to={pathname.slice(0, -1)} />
-              <Route exact path='/' component={PostIndex} />
-              <Route path='/login' component={Login} />
-              <PrivateRoute path='/posts/:id/edit' component={NewPost} />
-              <Route exact path='/posts/:id' component={PostShowPage} />
-              <Route exact path='/tos' component={TermsOfService} />
-              <Route path='/privacy' component={Privacy} />
+      <UserContext.Provider value={accountService.account}>
+        <div>
+          <Nav isDark={isDark} changeTheme={changeTheme} />
+          <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+            <CssBaseline>
+              <div className='container pt-4'>
+                <Switch>
+                  <Redirect from='/:url*(/+)' to={pathname.slice(0, -1)} />
+                  <Route exact path='/' component={PostIndex} />
+                  <Route path='/login' component={Login} />
+                  <PrivateRoute path='/posts/:id/edit' component={NewPost} />
+                  <Route exact path='/posts/:id' component={PostShowPage} />
+                  <Route exact path='/tos' component={TermsOfService} />
+                  <Route path='/privacy' component={Privacy} />
 
-              <Redirect from='*' to='/' />
-            </Switch>
-          </div>
-        </CssBaseline>
-      </ThemeProvider>
-      {/* </LoggedInUserContextProvider> */}
+                  <Redirect from='*' to='/' />
+                </Switch>
+              </div>
+            </CssBaseline>
+          </ThemeProvider>
+        </div>
+      </UserContext.Provider>
     </div>
   );
 }

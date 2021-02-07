@@ -11,8 +11,7 @@ errorInterceptor();
 // wait for facebook sdk before startup
 initFacebookSdk().then((acct) => startApp(acct));
 
-function startApp(user) {
-  console.log(user);
+function startApp() {
   render(
     <Router history={history}>
       <App />

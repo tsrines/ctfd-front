@@ -1,4 +1,3 @@
-// import { apiAuthenticate } from 'context/LoggedInUserContext';
 import { accountService } from '_services';
 
 const facebookAppId = process.env.REACT_APP_FACEBOOK_APP_ID;
