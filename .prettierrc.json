@@ -4,10 +4,10 @@
   "quoteProps": "as-needed",
   "tabWidth": 2,
   "useTabs": false,
-  "proseWrap": "always",
+  "proseWrap": "never",
   "bracketSpacing": true,
   "trailingComma": "es5",
   "semi": true,
-  "jsxSingleQuote": false,
+  "jsxSingleQuote": true,
   "jsxBracketSameLine": true
 }

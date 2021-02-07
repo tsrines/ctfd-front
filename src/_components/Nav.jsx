@@ -29,7 +29,7 @@ function Nav({ changeTheme, isDark }) {
   }, []);
 
   const handleCreatePostClick = async () => {
-    let post = await accountService.createPost();
+    const post = await accountService.createPost();
     history.push({
       pathname: `/posts/${post.id}/edit`,
       state: { from: history.location.state },
@@ -50,14 +50,14 @@ function Nav({ changeTheme, isDark }) {
     <nav className='navbar navbar-expand navbar-dark bg-dark'>
       <div className='navbar-nav barnav'>
         <button
+          type='button'
           className='btn btn-link nav-item nav-link'
-          onClick={() =>
-            history.push({ pathname: '/', from: history.location.pathname })
-          }>
+          onClick={() => history.push({ pathname: '/', from: history.location.pathname })}>
           Home
         </button>
         {admin && account && (
           <button
+            type='button'
             className='btn btn-link nav-item nav-link'
             onClick={handleCreatePostClick}>
             Create Post
@@ -66,6 +66,7 @@ function Nav({ changeTheme, isDark }) {
 
         {account && (
           <button
+            type='button'
             className='btn btn-link nav-item nav-link'
             onClick={handleToggleAdmin}>
             Admin Mode?
@@ -74,6 +75,7 @@ function Nav({ changeTheme, isDark }) {
 
         {account && (
           <button
+            type='button'
             className='btn btn-link nav-item nav-link'
             onClick={accountService.logout}>
             Logout
@@ -86,8 +88,8 @@ function Nav({ changeTheme, isDark }) {
           </IconButton>
         </div>
         {!account && (
-          <button className='btn btn-facebook' onClick={accountService.login}>
-            <i className='fa fa-facebook mr-1'></i>
+          <button type='button' className='btn btn-facebook' onClick={accountService.login}>
+            <i className='fa fa-facebook mr-1' />
             Login with Facebook
           </button>
         )}
@@ -96,4 +98,5 @@ function Nav({ changeTheme, isDark }) {
   );
 }
 
+// eslint-disable-next-line import/prefer-default-export
 export { Nav };

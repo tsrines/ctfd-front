@@ -12,6 +12,6 @@
     "no-use-before-define": "off",
     "global-require": "off",
     "import/no-unresolved": "off",
-    "no-console":"error"
+    "no-console": ["warn", { "allow": ["warn", "error"] }]
   }
 }
