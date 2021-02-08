@@ -22,9 +22,8 @@ const PostShowPage = ({ match }) => {
 
   const renderers = {
     code: ({ language, value }) => {
-      return (
-        <SyntaxHighlighter style={dark} language={language} children={value} />
-      );
+      // eslint-disable-next-line react/no-children-prop
+      return <SyntaxHighlighter style={dark} language={language} children={value} />;
     },
   };
 
@@ -40,14 +39,11 @@ const PostShowPage = ({ match }) => {
             plugins={[gfm]}
             renderers={renderers}
             source={currentPost.content}
-            allowDangerousHtml={true}
-            skipHtml={true}
+            allowDangerousHtml
+            skipHtml
           />
         </div>
-        <NewComment
-          updatePostComments={updatePostComments}
-          postID={match.params.id}
-        />
+        <NewComment updatePostComments={updatePostComments} postID={match.params.id} />
         <Comments comments={currentPostComments} />
       </>
     )

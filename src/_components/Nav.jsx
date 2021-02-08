@@ -6,6 +6,7 @@ import { Brightness3, WbSunny } from '@material-ui/icons';
 
 import { accountService, baseUrl } from '_services';
 import API from '_helpers/api-helpers';
+import { NavLink } from 'react-router-dom';
 
 const useStyles = makeStyles({
   spacing: {
@@ -45,16 +46,12 @@ function Nav({ changeTheme, isDark }) {
     }
   };
 
-  // only show nav when logged in
   return (
     <nav className='navbar navbar-expand navbar-dark bg-dark'>
       <div className='navbar-nav barnav'>
-        <button
-          type='button'
-          className='btn btn-link nav-item nav-link'
-          onClick={() => history.push({ pathname: '/', from: history.location.pathname })}>
+        <NavLink className='btn btn-link nav-item nav-link' to='/'>
           Home
-        </button>
+        </NavLink>
         {admin && account && (
           <button
             type='button'

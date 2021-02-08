@@ -37,22 +37,22 @@ function App() {
 
   return (
     <div>
-      <UserContext.Provider value={accountService.account}>
+      <UserContext.Provider value={accountService.accountValue}>
         <div>
           <Nav isDark={isDark} changeTheme={changeTheme} />
           <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
             <CssBaseline>
-              <div className="container pt-4">
+              <div className='container pt-4'>
                 <Switch>
-                  <Redirect from="/:url*(/+)" to={pathname.slice(0, -1)} />
-                  <Route exact path="/" component={PostIndex} />
-                  <Route path="/login" component={Login} />
-                  <PrivateRoute path="/posts/:id/edit" component={NewPost} />
-                  <Route exact path="/posts/:id" component={PostShowPage} />
-                  <Route exact path="/tos" component={TermsOfService} />
-                  <Route path="/privacy" component={Privacy} />
+                  <Redirect from='/:url*(/+)' to={pathname.slice(0, -1)} />
+                  <Route exact path='/' component={PostIndex} />
+                  <Route path='/login' component={Login} />
+                  <PrivateRoute path='/posts/:id/edit' component={NewPost} />
+                  <Route exact path='/posts/:id' component={PostShowPage} />
+                  <Route exact path='/tos' component={TermsOfService} />
+                  <Route path='/privacy' component={Privacy} />
 
-                  <Redirect from="*" to="/" />
+                  <Redirect from='*' to='/' />
                 </Switch>
               </div>
             </CssBaseline>
